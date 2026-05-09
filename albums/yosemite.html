@@ -62,13 +62,19 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
         transition: background 0.15s;
       }
 
-      .btn-arrow:hover { background: #fff; }
-      .btn-prev { left: 14px; }
-      .btn-next { right: 14px; }
+      .btn-arrow:hover {
+        background: #fff;
+      }
+      .btn-prev {
+        left: 14px;
+      }
+      .btn-next {
+        right: 14px;
+      }
 
       /* Caption bar */
       .carousel-caption {
@@ -77,14 +83,14 @@
       }
 
       .carousel-caption .cap-title {
-        font-family: 'Playfair Display', serif;
+        font-family: "Playfair Display", serif;
         font-size: 1.15rem;
         color: #2c2c2a;
         display: block;
       }
 
       .carousel-caption .cap-date {
-        font-family: 'Lato', sans-serif;
+        font-family: "Lato", sans-serif;
         font-size: 0.8rem;
         color: #888780;
         display: block;
@@ -92,7 +98,7 @@
       }
 
       .carousel-caption .cap-desc {
-        font-family: 'Lato', sans-serif;
+        font-family: "Lato", sans-serif;
         font-size: 0.9rem;
         color: #5f5e5a;
         display: block;
@@ -106,7 +112,7 @@
       /* Counter */
       .carousel-counter {
         text-align: center;
-        font-family: 'Lato', sans-serif;
+        font-family: "Lato", sans-serif;
         font-size: 0.78rem;
         color: #aaa;
         margin-top: 6px;
@@ -131,7 +137,9 @@
         overflow: hidden;
         cursor: pointer;
         background: #ddd;
-        transition: border-color 0.2s, opacity 0.2s;
+        transition:
+          border-color 0.2s,
+          opacity 0.2s;
         opacity: 0.65;
       }
 
@@ -147,7 +155,9 @@
         opacity: 1;
       }
 
-      .thumb:hover { opacity: 1; }
+      .thumb:hover {
+        opacity: 1;
+      }
 
       /* PDF slide */
       .pdf-slide {
@@ -167,13 +177,13 @@
       }
 
       .pdf-slide .pdf-name {
-        font-family: 'Playfair Display', serif;
+        font-family: "Playfair Display", serif;
         font-size: 1.1rem;
         color: #f0ede8;
       }
 
       .pdf-slide .pdf-btn {
-        font-family: 'Lato', sans-serif;
+        font-family: "Lato", sans-serif;
         font-size: 0.9rem;
         color: #1a1a18;
         background: #f0ede8;
@@ -185,7 +195,9 @@
         transition: background 0.15s;
       }
 
-      .pdf-slide .pdf-btn:hover { background: #fff; }
+      .pdf-slide .pdf-btn:hover {
+        background: #fff;
+      }
 
       /* PDF thumbnail */
       .thumb-pdf {
@@ -247,10 +259,8 @@
       </div>
 
       <div class="carousel-wrap">
-
         <!-- Main slide area -->
         <div class="carousel-main" id="carousel">
-
           <!-- Slide 1 -->
           <div class="carousel-slide active" id="slide-0">
             <img
@@ -293,20 +303,36 @@
                 href="../photos/national-parks/yosemite/pdfs/Otters.pdf"
                 target="_blank"
                 rel="noopener"
-              >Open PDF</a>
+                >Open PDF</a
+              >
             </div>
           </div>
 
           <!-- Arrows -->
-          <button class="btn-arrow btn-prev" onclick="move(-1)" aria-label="Previous photo">&#8249;</button>
-          <button class="btn-arrow btn-next" onclick="move(1)"  aria-label="Next photo">&#8250;</button>
+          <button
+            class="btn-arrow btn-prev"
+            onclick="move(-1)"
+            aria-label="Previous photo"
+          >
+            &#8249;
+          </button>
+          <button
+            class="btn-arrow btn-next"
+            onclick="move(1)"
+            aria-label="Next photo"
+          >
+            &#8250;
+          </button>
         </div>
 
         <!-- Caption -->
         <div class="carousel-caption">
-          <span class="cap-title"  id="cap-title">Lower Yosemite Falls</span>
-          <span class="cap-date"   id="cap-date">December 14, 2025</span>
-          <span class="cap-desc"   id="cap-desc">The falls were absolutely roaring — the mist reached us well before we got close.</span>
+          <span class="cap-title" id="cap-title">Lower Yosemite Falls</span>
+          <span class="cap-date" id="cap-date">December 14, 2025</span>
+          <span class="cap-desc" id="cap-desc"
+            >The falls were absolutely roaring — the mist reached us well before
+            we got close.</span
+          >
         </div>
 
         <!-- Counter -->
@@ -314,7 +340,6 @@
 
         <!-- Thumbnail strip -->
         <div class="thumb-strip" id="thumbs"></div>
-
       </div>
     </main>
 
@@ -340,55 +365,63 @@
       // ── Slide data ──
       const slides = [
         {
-          src:   '../photos/national-parks/yosemite/valley-view.jpg',
-          alt:   'Lower Yosemite Falls',
-          title: 'Lower Yosemite Falls',
-          date:  'December 14, 2025',
-          desc:  'The falls were absolutely roaring — the mist reached us well before we got close.',
-          type:  'image'
+          src: "../photos/national-parks/yosemite/valley-view.jpg",
+          alt: "Lower Yosemite Falls",
+          title: "Lower Yosemite Falls",
+          date: "December 14, 2025",
+          desc: "The falls were absolutely roaring — the mist reached us well before we got close.",
+          type: "image",
         },
         {
-          src:   '../photos/national-parks/yosemite/yvpostoffice.jpg',
-          alt:   'Yosemite Post Office',
-          title: 'Yosemite Valley',
-          date:  'December 14, 2025',
-          desc:  'You cannot take a bad photo of the valley. We tried to count how many we took.',
-          type:  'image'
+          src: "../photos/national-parks/yosemite/yvpostoffice.jpg",
+          alt: "Yosemite Post Office",
+          title: "Yosemite Valley",
+          date: "December 14, 2025",
+          desc: "You cannot take a bad photo of the valley. We tried to count how many we took.",
+          type: "image",
         },
         {
-          src:   '../photos/national-parks/yosemite/yosvalley-view.JPG',
-          alt:   'Tunnel View',
-          title: 'Tunnel View',
-          date:  'December 14, 2025',
-          desc:  'The classic postcard view of Yosemite Valley — even more spectacular in person.',
-          type:  'image'
+          src: "../photos/national-parks/yosemite/yosvalley-view.JPG",
+          alt: "Tunnel View",
+          title: "Tunnel View",
+          date: "December 14, 2025",
+          desc: "The classic postcard view of Yosemite Valley — even more spectacular in person.",
+          type: "image",
         },
         {
-          src:   '../photos/national-parks/yosemite/yostunneltree.jpg',
-          alt:   'Tunnel Tree',
-          title: 'Tunnel Tree',
-          date:  'May 5, 2026',
-          desc:  'Famous tunnel tree in Yosemite Park.',
-          type:  'image'
+          src: "../photos/national-parks/yosemite/yostunneltree.jpg",
+          alt: "Tunnel Tree",
+          title: "Tunnel Tree",
+          date: "May 5, 2026",
+          desc: "Famous tunnel tree in Yosemite Park.",
+          type: "image",
         },
         {
-          src:   '../photos/national-parks/yosemite/pdfs/Otters.pdf',
-          alt:   'Otters PDF',
-          title: 'Otters',
-          date:  '',
-          desc:  'Click "Open PDF" to view this document.',
-          type:  'pdf'
+          src: "../photos/national-parks/yosemite/pdfs/Otters.pdf",
+          alt: "Otters PDF",
+          title: "Otters",
+          date: "",
+          desc: 'Click "Open PDF" to view this document.',
+          type: "pdf",
+        },
+        {
+          src: "../photos/national-parks/yosemite/pdfs/Otters1.pdf",
+          alt: "Otters1 PDF",
+          title: "Ottersfood",
+          date: "",
+          desc: 'Click "Open PDF" to view this document.',
+          type: "pdf",
         },
       ];
 
       let current = 0;
 
       // Build thumbnails
-      const strip = document.getElementById('thumbs');
+      const strip = document.getElementById("thumbs");
       slides.forEach((s, i) => {
-        const t = document.createElement('div');
-        t.className = 'thumb' + (i === 0 ? ' active' : '');
-        if (s.type === 'pdf') {
+        const t = document.createElement("div");
+        t.className = "thumb" + (i === 0 ? " active" : "");
+        if (s.type === "pdf") {
           t.innerHTML = `<div class="thumb-pdf">📄</div>`;
         } else {
           t.innerHTML = `<img src="${s.src}" alt="${s.alt}" />`;
@@ -398,26 +431,30 @@
       });
 
       function goTo(n) {
-        document.getElementById('slide-' + current).classList.remove('active');
-        strip.children[current].classList.remove('active');
+        document.getElementById("slide-" + current).classList.remove("active");
+        strip.children[current].classList.remove("active");
 
         current = (n + slides.length) % slides.length;
 
-        document.getElementById('slide-' + current).classList.add('active');
-        strip.children[current].classList.add('active');
+        document.getElementById("slide-" + current).classList.add("active");
+        strip.children[current].classList.add("active");
 
-        document.getElementById('cap-title').textContent = slides[current].title;
-        document.getElementById('cap-date').textContent  = slides[current].date;
-        document.getElementById('cap-desc').textContent  = slides[current].desc;
-        document.getElementById('counter').textContent   = (current + 1) + ' / ' + slides.length;
+        document.getElementById("cap-title").textContent =
+          slides[current].title;
+        document.getElementById("cap-date").textContent = slides[current].date;
+        document.getElementById("cap-desc").textContent = slides[current].desc;
+        document.getElementById("counter").textContent =
+          current + 1 + " / " + slides.length;
       }
 
-      function move(dir) { goTo(current + dir); }
+      function move(dir) {
+        goTo(current + dir);
+      }
 
       // Keyboard navigation
-      document.addEventListener('keydown', e => {
-        if (e.key === 'ArrowLeft')  move(-1);
-        if (e.key === 'ArrowRight') move(1);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") move(-1);
+        if (e.key === "ArrowRight") move(1);
       });
     </script>
   </body>

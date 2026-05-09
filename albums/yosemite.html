@@ -148,6 +148,55 @@
       }
 
       .thumb:hover { opacity: 1; }
+
+      /* PDF slide */
+      .pdf-slide {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #2c2c2a;
+        gap: 16px;
+      }
+
+      .pdf-slide .pdf-icon {
+        font-size: 4rem;
+        line-height: 1;
+      }
+
+      .pdf-slide .pdf-name {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.1rem;
+        color: #f0ede8;
+      }
+
+      .pdf-slide .pdf-btn {
+        font-family: 'Lato', sans-serif;
+        font-size: 0.9rem;
+        color: #1a1a18;
+        background: #f0ede8;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 24px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.15s;
+      }
+
+      .pdf-slide .pdf-btn:hover { background: #fff; }
+
+      /* PDF thumbnail */
+      .thumb-pdf {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #3a3a38;
+        font-size: 1.6rem;
+      }
     </style>
   </head>
   <body>
@@ -234,6 +283,20 @@
             />
           </div>
 
+          <!-- Slide 5 — PDF -->
+          <div class="carousel-slide" id="slide-4">
+            <div class="pdf-slide">
+              <span class="pdf-icon">📄</span>
+              <span class="pdf-name">Otters.pdf</span>
+              <a
+                class="pdf-btn"
+                href="../photos/national-parks/yosemite/pdfs/Otters.pdf"
+                target="_blank"
+                rel="noopener"
+              >Open PDF</a>
+            </div>
+          </div>
+
           <!-- Arrows -->
           <button class="btn-arrow btn-prev" onclick="move(-1)" aria-label="Previous photo">&#8249;</button>
           <button class="btn-arrow btn-next" onclick="move(1)"  aria-label="Next photo">&#8250;</button>
@@ -247,7 +310,7 @@
         </div>
 
         <!-- Counter -->
-        <div class="carousel-counter" id="counter">1 / 3</div>
+        <div class="carousel-counter" id="counter">1 / 5</div>
 
         <!-- Thumbnail strip -->
         <div class="thumb-strip" id="thumbs"></div>
@@ -274,35 +337,47 @@
     </footer>
 
     <script>
-      // ── Slide data — update src/alt/title/date/desc to match your photos ──
+      // ── Slide data ──
       const slides = [
         {
           src:   '../photos/national-parks/yosemite/valley-view.jpg',
           alt:   'Lower Yosemite Falls',
           title: 'Lower Yosemite Falls',
           date:  'December 14, 2025',
-          desc:  'The falls were absolutely roaring — the mist reached us well before we got close.'
+          desc:  'The falls were absolutely roaring — the mist reached us well before we got close.',
+          type:  'image'
         },
         {
           src:   '../photos/national-parks/yosemite/yvpostoffice.jpg',
           alt:   'Yosemite Post Office',
           title: 'Yosemite Valley',
           date:  'December 14, 2025',
-          desc:  'You cannot take a bad photo of the valley. We tried to count how many we took.'
+          desc:  'You cannot take a bad photo of the valley. We tried to count how many we took.',
+          type:  'image'
         },
         {
           src:   '../photos/national-parks/yosemite/yosvalley-view.JPG',
           alt:   'Tunnel View',
           title: 'Tunnel View',
           date:  'December 14, 2025',
-          desc:  'The classic postcard view of Yosemite Valley — even more spectacular in person.'
+          desc:  'The classic postcard view of Yosemite Valley — even more spectacular in person.',
+          type:  'image'
         },
         {
           src:   '../photos/national-parks/yosemite/yostunneltree.jpg',
           alt:   'Tunnel Tree',
           title: 'Tunnel Tree',
           date:  'May 5, 2026',
-          desc:  'Famous tunnel tree in Yosemite Park.'
+          desc:  'Famous tunnel tree in Yosemite Park.',
+          type:  'image'
+        },
+        {
+          src:   '../photos/national-parks/yosemite/pdfs/Otters.pdf',
+          alt:   'Otters PDF',
+          title: 'Otters',
+          date:  '',
+          desc:  'Click "Open PDF" to view this document.',
+          type:  'pdf'
         },
       ];
 
@@ -313,7 +388,11 @@
       slides.forEach((s, i) => {
         const t = document.createElement('div');
         t.className = 'thumb' + (i === 0 ? ' active' : '');
-        t.innerHTML = `<img src="${s.src}" alt="${s.alt}" />`;
+        if (s.type === 'pdf') {
+          t.innerHTML = `<div class="thumb-pdf">📄</div>`;
+        } else {
+          t.innerHTML = `<img src="${s.src}" alt="${s.alt}" />`;
+        }
         t.onclick = () => goTo(i);
         strip.appendChild(t);
       });
